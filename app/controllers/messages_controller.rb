@@ -32,6 +32,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     if @message.unread? && current_user == @message.receiver #only set to read if current_user is the receiver of the message
       @message.read!
+      render json: @message
     end
   end
 

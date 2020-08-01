@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   load_and_authorize_resource #cancancan permissions
-  before_action :authenticate_user!
-  before_action :set_user, except: [:index]
-
+  before_action :authenticate_user!, except: [:test]
+  before_action :set_user, except: [:index, :test]
+  
   # render edit form
   def edit
+  end
+
+  def test
+    render json: {ok: "okok"}
   end
 
   # update user info
