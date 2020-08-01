@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   get '/archived' => 'messages#archived', as: 'archived'
   patch '/archive' => 'messages#archive', as: 'archive', defaults: {format: 'js'}
   patch '/archive_multiple' => 'messages#archive_multiple', as: 'archive_multiple', defaults: {format: 'js'}
+
+  scope '/api' do
+    scope '/v1' do
+        get 'test', to: 'users#test'
+    end
+  end
 end

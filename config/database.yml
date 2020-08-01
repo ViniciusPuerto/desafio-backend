@@ -8,7 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: agenda_mail_development
+  database: postgres
+  password: postgres
 
 test:
   <<: *default
